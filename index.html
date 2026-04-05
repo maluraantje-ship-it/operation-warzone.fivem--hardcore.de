@@ -4,63 +4,150 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Operation Nightfall</title>
+
+  <!-- Handschrift Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: url('https://media.galaxybot.app/server/1434478002665685062/09970f4f-809a-4ef8-b8df-07c979829e26.png') no-repeat center center/cover;
       color: white;
+      overflow-x: hidden;
+    }
+
+    /* Dark Overlay + Blur */
+    .overlay {
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      min-height: 100vh;
+      padding: 60px 20px;
       text-align: center;
     }
 
-    .overlay {
-      background: rgba(0, 0, 0, 0.7);
-      min-height: 100vh;
-      padding: 50px 20px;
-    }
-
+    /* Title (Handwritten + Glow) */
     h1 {
-      font-size: 3em;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 4em;
+      color: #fff;
+      text-shadow:
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 40px #ff0000;
       margin-bottom: 10px;
+      letter-spacing: 2px;
     }
 
+    /* Subtitle */
     p {
       font-size: 1.2em;
-      margin-bottom: 30px;
+      color: #ccc;
+      margin-bottom: 40px;
     }
 
+    /* Buttons */
     .button {
       display: inline-block;
       margin: 10px;
-      padding: 15px 30px;
+      padding: 15px 35px;
       font-size: 1.1em;
       color: white;
-      background: #111;
-      border: 2px solid #fff;
-      border-radius: 8px;
       text-decoration: none;
+      border: 2px solid #ff0000;
+      border-radius: 50px;
+      background: transparent;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ff0000;
+      top: 0;
+      left: -100%;
       transition: 0.3s;
+      z-index: -1;
+    }
+
+    .button:hover::before {
+      left: 0;
     }
 
     .button:hover {
-      background: #fff;
-      color: #000;
+      color: black;
+      box-shadow: 0 0 15px #ff0000;
     }
 
+    /* Rules Box */
     #rules {
       display: none;
-      margin-top: 40px;
+      margin-top: 50px;
       text-align: left;
-      max-width: 800px;
+      max-width: 900px;
       margin-left: auto;
       margin-right: auto;
-      background: rgba(0,0,0,0.8);
-      padding: 20px;
+      background: rgba(10, 10, 10, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #ff0000;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      animation: fadeIn 0.5s ease;
+    }
+
+    /* Handwritten section titles */
+    h2, h3 {
+      font-family: 'Permanent Marker', cursive;
+      color: #ff4d4d;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2em;
+    }
+
+    h3 {
+      margin-top: 20px;
+    }
+
+    strong {
+      color: #ff6666;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #ff0000;
       border-radius: 10px;
     }
+
   </style>
 </head>
 <body>
+
   <div class="overlay">
     <h1>Operation Nightfall</h1>
     <p>Hardcore FiveM Server</p>
@@ -72,50 +159,26 @@
       <h2>Server Regelwerk</h2>
 
       <h3>§ 1 Voraussetzungen</h3>
-      <p><strong>§ 1.1 Mindestalter:</strong> Mindestens 13 Jahre (Ausnahmen möglich).</p>
-      <p><strong>§ 1.2 Voice-Chat:</strong> Funktionierendes Mikrofon ohne Störungen ist Pflicht.</p>
+      <p><strong>§ 1.1 Mindestalter:</strong> Mindestens 13 Jahre</p>
+      <p><strong>§ 1.2 Voice-Chat:</strong> Funktionierendes Mikrofon Pflicht</p>
 
       <h3>§ 2 Allgemeine Regeln</h3>
-      <p><strong>§ 2.1 Umgangston:</strong> Respektvoller Umgang ist Pflicht.</p>
-      <p><strong>§ 2.2 Cheats & Bugs:</strong> Cheats, Mod-Menüs und Bugusing sind verboten.<br>→ Sofortiger Bann</p>
-      <p><strong>§ 2.3 Abwerben:</strong> Spieler abwerben (ingame/Discord) ist verboten.<br>→ Permanenter Bann</p>
-      <p><strong>§ 2.4 Externe Programme:</strong> Programme mit Vorteilen (z. B. Crosshair, visuelle Mods) sind verboten.<br>→ Permanenter Bann</p>
-      <p><strong>§ 2.5 24/7 RP:</strong> Roleplay läuft jederzeit weiter.</p>
+      <p><strong>§ 2.1 Umgangston:</strong> Respektvoll bleiben</p>
+      <p><strong>§ 2.2 Cheats:</strong> Sofort Bann</p>
+      <p><strong>§ 2.3 Abwerben:</strong> Permanenter Bann</p>
 
       <h3>§ 3 Roleplay</h3>
-      <p><strong>§ 3.1 Realismus & FearRP:</strong> Realistisches Verhalten ist Pflicht. Das eigene Leben hat höchste Priorität.</p>
-      <p><strong>§ 3.2 Combat-Log / Ghosting:</strong><br>Ausloggen im RP verboten<br>Nach RP: 15 Minuten nicht ausloggen</p>
-      <p><strong>§ 3.3 Verletzungen:</strong> Verletzungen müssen ausgespielt werden.</p>
-      <p><strong>§ 3.4 Meta-Gaming:</strong> Infos von außerhalb (Discord, Streams etc.) sind verboten.</p>
-      <p><strong>§ 3.5 OOC-Talk:</strong> Kein OOC im RP.</p>
-      <p><strong>§ 3.6 PowerRP / Baiting:</strong><br>Kein Erzwingen von RP<br>Kein provozierendes unrealistisches Verhalten</p>
-      <p><strong>§ 3.6 PowerRP / Spreng MG:</strong><br>Es wird nicht mit Spreng MG auf Bodentruppen oder Flugzeuge geschossen</p>
-      <p><strong>§ 3.6 PowerRP /  Medic Zeichen:</strong><br>Wenn man eine Person mit einem Medic abzeichen sieht wird diese nicht angeschossen etc.</p>
-      <p><strong>§ 3.6 PowerRP /  Flugzeuge:</strong><br>Es ist verboten Bodentruppen mit einer Rakete nieder zu schießen.</p>
+      <p><strong>FearRP:</strong> Dein Leben zählt</p>
+      <p><strong>Meta-Gaming:</strong> Verboten</p>
+      <p><strong>OOC:</strong> Nicht im RP</p>
 
       <h3>§ 4 Kampfregeln</h3>
-      <p><strong>§ 4.1 RDM:</strong> Kein Töten ohne RP-Grund.</p>
-      <p><strong>§ 4.2 VDM:</strong> Fahrzeuge sind keine Waffen.</p>
-      <p><strong>§ 4.3 Waffennutzung:</strong> Waffen nur mit triftigem Grund einsetzen.</p>
+      <p><strong>RDM:</strong> Verboten</p>
+      <p><strong>VDM:</strong> Verboten</p>
 
-      <h3>§ 5 New-Life-Regel</h3>
-      <p>Nach dem Tod wird alles vergessen.</p>
+      <h3>§ 5 New Life</h3>
+      <p>Alles wird vergessen nach dem Tod</p>
 
-      <h3>§ 6 Überfälle & Situationen</h3>
-      <p><strong>§ 6.1 Fairness:</strong> Opfer müssen eine Überlebenschance haben.</p>
-      <p><strong>§ 6.2 Server-Restart 🚨:</strong> 30 Minuten vor Restart dürfen keine neuen Situationen oder Einsätze gestartet werden.</p>
-
-      <h3>§ 7 Fraktionen</h3>
-      <p><strong>§ 7.1 Medics:</strong><br>Sind neutral<br>Dürfen nicht angegriffen werden</p>
-      <p><strong>§ 7.2 Fraktionswechsel:</strong> Nach Kündigung: 24h Sperre</p>
-
-      <h3>§ 8 Support</h3>
-      <p><strong>§ 8.1 Support-Regeln:</strong><br>Support nicht einfach verlassen<br>Teammitglieder nicht privat anschreiben</p>
-      <p><strong>§ 8.2 Meldung:</strong> Regelverstöße müssen gemeldet werden.</p>
-
-      <h3>§ 9 Streaming</h3>
-      <p><strong>§ 9.1 Genehmigung:</strong> Streaming nur mit Erlaubnis.</p>
-      <p><strong>§ 9.2 Streamsniping:</strong> Verboten.</p>
     </div>
   </div>
 
@@ -125,5 +188,6 @@
       rules.style.display = rules.style.display === 'block' ? 'none' : 'block';
     }
   </script>
+
 </body>
 </html>
