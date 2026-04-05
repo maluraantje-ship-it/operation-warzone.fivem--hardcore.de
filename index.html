@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Operation Nightfall</title>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
   <style>
@@ -15,6 +16,7 @@
       font-family: 'Montserrat', sans-serif;
       background: url('https://media.galaxybot.app/server/1434478002665685062/09970f4f-809a-4ef8-b8df-07c979829e26.png') no-repeat center center/cover;
       color: white;
+      overflow-y: auto;
     }
 
     .overlay {
@@ -29,12 +31,15 @@
       font-family: 'Permanent Marker', cursive;
       font-size: 4em;
       text-shadow: 0 0 20px red;
+      margin-bottom: 10px;
     }
 
     p {
       color: #ccc;
+      margin-bottom: 30px;
     }
 
+    /* Buttons */
     .button {
       display: inline-block;
       margin: 10px;
@@ -43,9 +48,9 @@
       border-radius: 50px;
       color: white;
       text-decoration: none;
-      transition: 0.3s;
       position: relative;
       overflow: hidden;
+      transition: 0.3s;
     }
 
     .button::before {
@@ -61,8 +66,12 @@
     }
 
     .button:hover::before { left: 0; }
-    .button:hover { color: black; }
+    .button:hover {
+      color: black;
+      box-shadow: 0 0 15px red;
+    }
 
+    /* RULES BOX FIXED */
     #rules {
       display: none;
       margin-top: 40px;
@@ -70,10 +79,23 @@
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.95);
       padding: 30px;
       border-radius: 15px;
       border: 1px solid red;
+
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    /* Scrollbar */
+    #rules::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #rules::-webkit-scrollbar-thumb {
+      background: red;
+      border-radius: 10px;
     }
 
     h2, h3 {
@@ -81,7 +103,19 @@
       color: #ff4d4d;
     }
 
-    strong { color: #ff6666; }
+    h2 {
+      text-align: center;
+      font-size: 2em;
+    }
+
+    h3 {
+      margin-top: 20px;
+    }
+
+    strong {
+      color: #ff6666;
+    }
+
   </style>
 </head>
 
